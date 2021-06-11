@@ -9,3 +9,19 @@ spec:
   resources:
     requests:
       storage: 50Mi
+      
++++++++++++++++++++++++++++++++++++ Using local pv +++++++
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: local-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  storageClassName: local-storage
+  volumeName: local-pv
+  resources:
+    requests:
+      storage: 500Mi
